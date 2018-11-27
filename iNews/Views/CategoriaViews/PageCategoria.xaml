@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="iNews.Views.CategoriaViews.PageCategoria"
+             Title="Lista de Categorias">
+    <ContentPage.ToolbarItems> 
+        <ToolbarItem Text="+" Clicked="Nova_Categoria"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ListView x:Name="lvCategorias" HasUnevenRows="true">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnEdit" CommandParameter="{Binding CategoriaId}" Text="Editar" />
+                            <MenuItem Clicked="OnDelete" CommandParameter="{Binding CategoriaId}" Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>
+                        <StackLayout Padding="15,15">
+                            <Label Text="{Binding Nome}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

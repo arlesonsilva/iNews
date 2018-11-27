@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="iNews.Views.NoticiaViews.PageNovaNoticia"
+             Title="Nova Notícia">
+    <StackLayout Padding="10">
+        <Entry x:Name="txtTitulo"
+               Placeholder="Título da Notícia" />
+        <Picker x:Name="pckCategorias" 
+                Title="Selecione uma categoria" 
+                ItemDisplayBinding="{Binding Nome}"
+                SelectedIndexChanged="pckCategorias_SelectedIndexChanged"/>
+        <Editor x:Name="edtDescricao" HeightRequest="300" />
+        <Label x:Name="lblDtNoticia" TextColor="Gray"/>
+        <Button  x:Name="btnNovaNoticia" 
+                 Clicked="AddNova_Noticia"
+                 Text="Salvar" />
+    </StackLayout>
+</ContentPage>

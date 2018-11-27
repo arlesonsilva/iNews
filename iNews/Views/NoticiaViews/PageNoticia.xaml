@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="iNews.Views.NoticiaViews.PageNoticia"
+             Title="Lista de Notícias">
+    <ContentPage.ToolbarItems> 
+        <ToolbarItem Text="+" Clicked="Nova_Noticia"/>
+    </ContentPage.ToolbarItems>
+
+        <!--<StackLayout>
+            <ListView x:Name ="lvNoticias" 
+                      HasUnevenRows="true"
+                      IsGroupingEnabled="true" 
+                      GroupDisplayBinding="{Binding categoria.Nome}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Titulo}" Detail="{Binding DtNoticia}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>-->
+    <ContentPage.Content>
+        <ListView x:Name="lvNoticias" HasUnevenRows="true" IsGroupingEnabled="true" GroupDisplayBinding="{Binding categoria.Nome}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Editar" />
+                            <MenuItem Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>
+                        <StackLayout Padding="15,15" Orientation="Vertical">
+                            <Label Text="{Binding Titulo}" FontSize="Medium" />
+                            <Label Text="{Binding DtNoticia}" FontSize="Small" TextColor="Gray" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
